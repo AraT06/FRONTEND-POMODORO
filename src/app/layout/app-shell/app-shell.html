@@ -1,0 +1,45 @@
+<main class="shell">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/inicio" aria-label="POMODORO">
+      <span>✦</span>
+      <strong>POMODORO</strong>
+    </a>
+
+    <nav aria-label="Principal">
+      <small>Main menu</small>
+      @for (item of filteredNav(); track item) {
+        <a [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.path === '/inicio' }">
+          <span>{{ item.icon }}</span>
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar__card">
+      <span>Estado</span>
+      <strong>{{ state.activeWeather().label }}</strong>
+      <p>{{ state.activeWeather().city }} · {{ state.focusMinutes() }} min</p>
+    </div>
+  </aside>
+
+  <section class="workspace">
+    <header class="topbar">
+      <label class="search">
+        <span>⌕</span>
+        <input type="search" placeholder="Buscar sección" [value]="search()" (input)="search.set($any($event.target).value)" />
+        <span>⌘</span>
+      </label>
+
+      <div class="topbar__actions">
+        <button type="button" class="pill" (click)="toggleMute()">{{ state.muted() ? 'Muted' : 'Sound On' }}</button>
+        <button type="button" class="profile">
+          <span>AT</span>
+          <strong>Aracely Tito</strong>
+        </button>
+      </div>
+    </header>
+
+    <router-outlet />
+  </section>
+</main>
+<app-chatbot />

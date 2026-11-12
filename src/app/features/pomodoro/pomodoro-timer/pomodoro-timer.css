@@ -1,0 +1,51 @@
+.timer {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.4rem;
+}
+
+.timer__dial {
+  display: grid;
+  place-items: center;
+  width: min(220px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: conic-gradient(var(--teal) calc(var(--progress) * 1%), rgba(7, 59, 63, 0.08) 0), radial-gradient(circle, #f6ffff 58%, transparent 59%);
+}
+
+.timer__dial span {
+  align-self: end;
+  color: var(--ink-soft);
+}
+
+.timer__dial strong {
+  align-self: start;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  letter-spacing: -0.08em;
+}
+
+.timer__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 0.9rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+button.primary {
+  color: white;
+  background: var(--teal);
+}
+
+@media (max-width: 480px) {
+  .timer__actions {
+    grid-template-columns: 1fr;
+  }
+}

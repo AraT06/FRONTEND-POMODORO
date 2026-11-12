@@ -1,0 +1,17 @@
+<section class="page-hero">
+  <div>
+    <p>Sesión de enfoque</p>
+    <h1>Pomodoro ambiental</h1>
+  </div>
+  <strong>{{ state.focusMinutes() }} min acumulados</strong>
+</section>
+
+<section class="pomodoro-grid">
+  <app-glass-panel title="Temporizador" action="•••">
+    <app-pomodoro-timer (sessionCompleted)="state.addSession($event)" />
+  </app-glass-panel>
+
+  <app-glass-panel title="Árbol de esta sesión" action="•••">
+    <app-progress-tree [depth]="state.focusSessions()" [wind]="state.activeWeather().wind" />
+  </app-glass-panel>
+</section>

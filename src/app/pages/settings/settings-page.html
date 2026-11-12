@@ -1,0 +1,34 @@
+<section class="page-hero">
+  <div>
+    <p>Preferencias locales</p>
+    <h1>Ajustes</h1>
+  </div>
+</section>
+
+<section class="settings-grid">
+  <app-glass-panel title="Preferencias de ambiente" action="•••">
+    <form>
+      <label>
+        <span>Clima inicial</span>
+        <select [value]="state.weatherId()" (change)="setWeather($any($event.target).value)">
+          @for (option of state.weatherOptions; track option.id) {
+            <option [value]="option.id">{{ option.label }} · {{ option.city }}</option>
+          }
+        </select>
+      </label>
+
+      <label>
+        <span>Audio</span>
+        <button type="button" (click)="state.setMuted(!state.muted())">{{ state.muted() ? 'Activar' : 'Silenciar' }}</button>
+      </label>
+    </form>
+  </app-glass-panel>
+
+  <app-glass-panel title="Datos de sesión" action="•••">
+    <div class="settings-card">
+      <strong>{{ state.focusMinutes() }}</strong>
+      <span>minutos acumulados</span>
+      <button type="button" (click)="state.resetProgress()">Limpiar progreso</button>
+    </div>
+  </app-glass-panel>
+</section>

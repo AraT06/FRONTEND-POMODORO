@@ -1,0 +1,26 @@
+<div class="tree-wrap" [style.--sway.deg]="sway()">
+  <svg viewBox="0 0 260 260" role="img" aria-label="Árbol de progreso">
+    <ellipse class="ground" cx="130" cy="233" rx="86" ry="17" />
+    <path class="trunk-fill" d="M112 232 C119 201 119 171 121 139 C123 112 140 112 141 139 C142 171 143 202 151 232 Z" />
+    <path class="trunk-line" d="M130 226 C128 190 130 160 131 127" />
+    <path class="root root--left" d="M123 220 C105 223 96 231 82 232" />
+    <path class="root root--right" d="M139 220 C157 222 167 230 183 232" />
+    <circle class="leaf leaf--main" cx="130" cy="88" [attr.r]="stage().canopy" />
+    <circle class="leaf leaf--left" cx="88" cy="116" [attr.r]="stage().canopy * 0.56" />
+    <circle class="leaf leaf--right" cx="172" cy="116" [attr.r]="stage().canopy * 0.56" />
+    <circle class="leaf leaf--top" cx="130" cy="53" [attr.r]="stage().canopy * 0.48" />
+    <circle class="leaf leaf--front" cx="130" cy="126" [attr.r]="stage().canopy * 0.5" />
+    @for (branch of branches(); track branch) {
+      <circle class="fruit" [attr.cx]="82 + ((branch * 31) % 96)" [attr.cy]="61 + ((branch * 19) % 74)" r="4" />
+    }
+  </svg>
+  <div>
+    <strong>{{ stage().label }}</strong>
+    <span>{{ stage().description }}</span>
+  </div>
+  <ol class="stages">
+    @for (item of stages; track item; let index = $index) {
+      <li [class.active]="index <= activeStageIndex()">{{ item }}</li>
+    }
+  </ol>
+</div>

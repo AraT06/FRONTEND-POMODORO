@@ -1,0 +1,9 @@
+<div class="weather-panel">
+  @for (item of options(); track item.id) {
+    <button type="button" [class.active]="activeId() === item.id" [style.--accent]="item.accent" (click)="weatherChange.emit(item.id)">
+      <span>{{ item.label }}</span>
+      <strong>{{ item.temperature }}°C</strong>
+      <small>{{ item.city }}</small>
+    </button>
+  }
+</div>

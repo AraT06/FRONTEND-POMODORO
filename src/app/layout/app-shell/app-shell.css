@@ -1,0 +1,242 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 1.4rem;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: clamp(205px, 18vw, 245px) minmax(0, 1fr);
+  min-height: calc(100vh - 2.8rem);
+  overflow: hidden;
+  border-radius: 38px;
+  background: rgba(235, 251, 250, 0.82);
+  box-shadow: 0 28px 90px rgba(17, 74, 78, 0.16);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.6rem;
+  min-width: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: rgba(232, 248, 248, 0.7);
+}
+
+.brand,
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span,
+.profile span,
+nav a span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.brand strong {
+  font-size: 1.35rem;
+  letter-spacing: -0.05em;
+}
+
+nav {
+  display: grid;
+  gap: 0.65rem;
+}
+
+nav small {
+  margin: 0.4rem 0 0.3rem;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.75rem;
+  color: var(--ink-soft);
+  background: transparent;
+  text-align: left;
+  text-decoration: none;
+}
+
+nav a.active {
+  color: white;
+  background: var(--teal);
+}
+
+.sidebar__card {
+  margin-top: auto;
+  border-radius: 26px;
+  padding: 1rem;
+  background: linear-gradient(145deg, var(--aqua), rgba(255, 255, 255, 0.7));
+}
+
+.sidebar__card span,
+.hero p,
+.sidebar__card p {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.sidebar__card strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.4rem;
+}
+
+.workspace {
+  min-width: 0;
+  overflow-x: hidden;
+  padding: 1.55rem;
+}
+
+.topbar,
+.hero,
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: min(360px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+}
+
+.pill,
+.team-button,
+.profile {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.team-button {
+  color: white;
+  background: var(--teal);
+}
+
+.profile {
+  padding: 0.45rem 0.85rem 0.45rem 0.45rem;
+}
+
+.hero {
+  margin: 1.2rem 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.06em;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.05fr) minmax(280px, 1fr) minmax(250px, 0.82fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.content-grid app-glass-panel:nth-child(1),
+.content-grid app-glass-panel:nth-child(4) {
+  grid-row: span 2;
+}
+
+@media (max-width: 1150px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    gap: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  nav {
+    grid-template-columns: repeat(6, minmax(110px, 1fr));
+    overflow-x: auto;
+  }
+
+  .sidebar__card {
+    margin-top: 0;
+  }
+
+  .stats-grid,
+  .content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  :host {
+    padding: 0;
+  }
+
+  .shell {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .topbar,
+  .hero,
+  .topbar__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  nav,
+  .stats-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

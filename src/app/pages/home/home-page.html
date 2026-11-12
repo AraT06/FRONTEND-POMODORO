@@ -1,0 +1,23 @@
+<section class="page-hero">
+  <div>
+    <p>Panel principal Pomodoro</p>
+    <h1>Bienvenida, Aracely Tito</h1>
+  </div>
+  <a routerLink="/pomodoro">Iniciar enfoque</a>
+</section>
+
+<section class="stats-grid">
+  @for (card of stats(); track card.label) {
+    <app-stat-card [card]="card" />
+  }
+</section>
+
+<section class="home-grid">
+  <app-glass-panel title="Resumen ambiental" action="•••">
+    <app-ambient-scene [weather]="state.activeWeather()" />
+  </app-glass-panel>
+
+  <app-glass-panel title="Etapas del árbol" action="•••">
+    <app-progress-tree [depth]="state.focusSessions()" [wind]="state.activeWeather().wind" />
+  </app-glass-panel>
+</section>

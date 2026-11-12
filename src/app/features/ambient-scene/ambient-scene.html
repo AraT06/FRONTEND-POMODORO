@@ -1,0 +1,22 @@
+<div class="scene" [class]="'scene scene--' + weather().id" [style.--accent]="weather().accent">
+  @if (weather().id === 'rain' || weather().id === 'storm') {
+    <div class="rain-bg" aria-hidden="true"></div>
+  }
+  <div class="scene__sky">
+    <span class="orb"></span>
+    @for (particle of particles(); track particle.id) {
+      <i
+        [style.--x.%]="particle.x"
+        [style.--y.%]="particle.y"
+        [style.--delay.s]="particle.delay"
+        [style.--duration.s]="particle.duration"
+        [style.--size]="particle.size"
+      ></i>
+    }
+  </div>
+  <div class="scene__info">
+    <span>{{ weather().city }}</span>
+    <strong>{{ weather().label }}</strong>
+    <p>{{ weather().wind }} km/h viento · {{ weather().humidity }}% humedad</p>
+  </div>
+</div>

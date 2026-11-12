@@ -1,0 +1,25 @@
+@if (!hidden()) {
+<article class="stat-card" [class]="'stat-card stat-card--' + card().tone" [class.stat-card--highlighted]="highlighted()">
+  <div class="stat-card__top">
+    <span>{{ card().icon }}</span>
+    <div class="stat-card__actions">
+      <button type="button" aria-label="Ver ajustes" (click)="menuOpen.update(value => !value)">•••</button>
+      @if (menuOpen()) {
+        <div class="stat-card__menu">
+          <button type="button" (click)="highlighted.update(value => !value)">{{ highlighted() ? 'Quitar destaque' : 'Destacar' }}</button>
+          <button type="button" (click)="hidden.set(true)">Ocultar</button>
+          <button type="button" (click)="menuOpen.set(false)">Cerrar</button>
+        </div>
+      }
+    </div>
+  </div>
+  <p>{{ card().label }}</p>
+  <strong>{{ card().value }}</strong>
+  <small>{{ card().delta }}</small>
+  <div class="stat-card__bars" aria-hidden="true">
+    @for (bar of [28, 42, 58, 77, 96, 68]; track $index) {
+      <i [style.height.%]="bar"></i>
+    }
+  </div>
+</article>
+}

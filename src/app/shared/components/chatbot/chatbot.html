@@ -1,0 +1,28 @@
+<button class="chat-toggle" type="button" (click)="toggle()" [attr.aria-expanded]="open()">
+  <span>✦</span>
+  <span>Focus AI</span>
+</button>
+
+@if (open()) {
+  <section class="chat-window" aria-label="Chat con Focus AI">
+    <header>
+      <div>
+        <strong>Focus AI</strong>
+        <small>Asistente de productividad</small>
+      </div>
+      <button type="button" aria-label="Cerrar chat" (click)="toggle()">×</button>
+    </header>
+
+    <div class="chat-messages">
+      @for (message of messages(); track $index) {
+        <p [class.user]="message.author === 'user'">{{ message.text }}</p>
+      }
+      @if (sending()) { <p class="typing">Pensando...</p> }
+    </div>
+
+    <form (ngSubmit)="send()">
+      <input name="message" placeholder="Pregunta sobre enfoque..." [ngModel]="draft()" (ngModelChange)="draft.set($event)" autocomplete="off" />
+      <button type="submit" [disabled]="sending() || !draft().trim()" aria-label="Enviar">↑</button>
+    </form>
+  </section>
+}

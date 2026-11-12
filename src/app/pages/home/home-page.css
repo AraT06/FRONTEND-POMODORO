@@ -1,0 +1,48 @@
+.page-hero,
+.stats-grid,
+.home-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.page-hero {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin: 1.2rem 0;
+}
+
+.page-hero p {
+  margin: 0 0 0.25rem;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.06em;
+}
+
+.page-hero a {
+  border-radius: 999px;
+  padding: 0.85rem 1.1rem;
+  color: white;
+  background: var(--teal);
+  text-decoration: none;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+}
+
+.home-grid {
+  grid-template-columns: minmax(280px, 1.25fr) minmax(260px, 0.75fr);
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .page-hero,
+  .stats-grid,
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}

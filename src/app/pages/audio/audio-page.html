@@ -1,0 +1,21 @@
+<section class="page-hero">
+  <div>
+    <p>Mezcla ambiental</p>
+    <h1>Audio inmersivo</h1>
+  </div>
+  <strong>{{ state.muted() ? 'Silenciado' : 'Activo' }}</strong>
+</section>
+
+<section class="audio-grid">
+  <app-glass-panel title="Canales" action="•••">
+    <app-audio-panel [muted]="state.muted()" (muteChange)="state.setMuted($event)" />
+  </app-glass-panel>
+
+  <app-glass-panel title="Perfil actual" action="•••">
+    <div class="profile-card">
+      <span>{{ state.activeWeather().label }}</span>
+      <strong>{{ state.activeWeather().city }}</strong>
+      <p>El volumen visual se ajusta desde los controles locales. Después se conectará al motor Web Audio.</p>
+    </div>
+  </app-glass-panel>
+</section>

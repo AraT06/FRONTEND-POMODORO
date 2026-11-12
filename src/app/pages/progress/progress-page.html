@@ -1,0 +1,30 @@
+<section class="page-hero">
+  <div>
+    <p>Crecimiento recursivo</p>
+    <h1>Progreso de enfoque</h1>
+  </div>
+  <button type="button" (click)="state.resetProgress()">Reiniciar progreso</button>
+</section>
+
+<section class="progress-grid">
+  <app-glass-panel title="Árbol principal" action="•••">
+    <app-progress-tree [depth]="state.focusSessions()" [wind]="state.activeWeather().wind" />
+  </app-glass-panel>
+
+  <app-glass-panel title="Métricas" action="•••">
+    <div class="metrics">
+      <article>
+        <span>Sesiones</span>
+        <strong>{{ state.focusSessions() }}</strong>
+      </article>
+      <article>
+        <span>Minutos</span>
+        <strong>{{ state.focusMinutes() }}</strong>
+      </article>
+      <article>
+        <span>Clima base</span>
+        <strong>{{ state.activeWeather().label }}</strong>
+      </article>
+    </div>
+  </app-glass-panel>
+</section>

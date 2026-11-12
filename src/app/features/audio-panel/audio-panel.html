@@ -1,0 +1,25 @@
+<div class="audio-panel">
+  <button type="button" class="play" [class.active]="playing()" (click)="toggleAudio()">
+    {{ playing() ? 'Detener sonido' : 'Reproducir lluvia' }}
+  </button>
+
+  <button type="button" class="mute" [class.active]="muted()" (click)="toggleMute()">
+    {{ muted() ? 'Activar audio' : 'Silenciar' }}
+  </button>
+
+  @for (channel of channels(); track channel.label; let index = $index) {
+    <label>
+      <span>{{ channel.label }}</span>
+      <strong>{{ muted() ? 0 : channel.value }}%</strong>
+      <input type="range" min="0" max="100" [value]="channel.value" [disabled]="muted()" (input)="updateChannel(index, $any($event.target).value)" />
+    </label>
+  }
+
+  <div class="spectrum" aria-label="Visualizador de audio">
+    @for (bar of channels(); track bar.label) {
+      <i [style.height.%]="muted() ? 8 : bar.value"></i>
+      <i [style.height.%]="muted() ? 8 : bar.value * 0.72"></i>
+      <i [style.height.%]="muted() ? 8 : bar.value * 0.46"></i>
+    }
+  </div>
+</div>

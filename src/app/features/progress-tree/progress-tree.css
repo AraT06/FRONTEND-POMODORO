@@ -1,0 +1,112 @@
+.tree-wrap {
+  display: grid;
+  place-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem;
+}
+
+svg {
+  width: min(100%, 270px);
+  filter: drop-shadow(0 16px 24px rgba(0, 72, 77, 0.12));
+  transform-origin: 50% 100%;
+  animation: sway 3.4s ease-in-out infinite alternate;
+}
+
+path {
+  stroke-linecap: round;
+}
+
+.ground {
+  fill: rgba(217, 245, 172, 0.62);
+}
+
+.trunk-fill {
+  fill: #8a5f35;
+  stroke: #6f4827;
+  stroke-width: 2;
+}
+
+.trunk-line,
+.root {
+  fill: none;
+  stroke: #5a351d;
+  stroke-width: 4;
+}
+
+.root {
+  stroke-width: 5;
+}
+
+.leaf {
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-width: 2;
+}
+
+.leaf--main {
+  fill: #7fd2bb;
+}
+
+.leaf--left {
+  fill: #93d9d1;
+}
+
+.leaf--right {
+  fill: #69c8ad;
+}
+
+.leaf--top {
+  fill: #d9f5ac;
+}
+
+.leaf--front {
+  fill: rgba(217, 245, 172, 0.78);
+}
+
+.fruit {
+  fill: #f4a8b3;
+  stroke: rgba(255, 255, 255, 0.58);
+  stroke-width: 1;
+}
+
+div div {
+  display: grid;
+  text-align: center;
+}
+
+strong {
+  font-size: 1.8rem;
+}
+
+span {
+  color: var(--ink-soft);
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stages li {
+  border-radius: 999px;
+  padding: 0.55rem 0.4rem;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.stages li.active {
+  color: white;
+  background: var(--teal);
+}
+
+@keyframes sway {
+  to {
+    transform: rotate(var(--sway));
+  }
+}

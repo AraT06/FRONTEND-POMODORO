@@ -1,0 +1,22 @@
+<section class="glass-panel" [class.glass-panel--compact]="compact()" [class.glass-panel--pinned]="pinned()">
+  @if (title()) {
+    <header class="glass-panel__header">
+      <h2>{{ title() }}</h2>
+      @if (action()) {
+        <div class="glass-panel__actions">
+          <button type="button" (click)="menuOpen.update(value => !value)" aria-label="Abrir ajustes del panel">{{ action() }}</button>
+          @if (menuOpen()) {
+            <div class="glass-panel__menu">
+              <button type="button" (click)="compact.update(value => !value)">{{ compact() ? 'Expandir' : 'Compactar' }}</button>
+              <button type="button" (click)="pinned.update(value => !value)">{{ pinned() ? 'Desfijar' : 'Fijar' }}</button>
+              <button type="button" (click)="menuOpen.set(false)">Cerrar</button>
+            </div>
+          }
+        </div>
+      }
+    </header>
+  }
+  @if (!compact()) {
+    <ng-content />
+  }
+</section>

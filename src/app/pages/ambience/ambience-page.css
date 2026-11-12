@@ -1,0 +1,36 @@
+.page-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+p,
+strong {
+  color: var(--ink-soft);
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.06em;
+}
+
+.ambience-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.45fr) minmax(260px, 0.65fr);
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .page-hero,
+  .ambience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

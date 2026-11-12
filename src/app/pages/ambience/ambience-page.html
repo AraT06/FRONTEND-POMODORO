@@ -1,0 +1,17 @@
+<section class="page-hero">
+  <div>
+    <p>Visuales por clima</p>
+    <h1>Ambiente inmersivo</h1>
+  </div>
+  <strong>{{ state.activeWeather().city }}</strong>
+</section>
+
+<section class="ambience-grid">
+  <app-glass-panel title="Escena activa" action="•••">
+    <app-ambient-scene [weather]="state.activeWeather()" />
+  </app-glass-panel>
+
+  <app-glass-panel title="Cambiar clima" action="•••">
+    <app-weather-panel [options]="state.weatherOptions" [activeId]="state.weatherId()" (weatherChange)="setWeather($event)" />
+  </app-glass-panel>
+</section>

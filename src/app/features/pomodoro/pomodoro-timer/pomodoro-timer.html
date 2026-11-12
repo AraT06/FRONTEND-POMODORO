@@ -1,0 +1,12 @@
+<div class="timer">
+  <div class="timer__dial" [style.--progress.%]="progress()">
+    <span>{{ mode() }}</span>
+    <strong>{{ time() }}</strong>
+  </div>
+
+  <div class="timer__actions">
+    <button type="button" class="primary" (click)="toggle()">{{ running() ? 'Pausar' : 'Iniciar' }}</button>
+    <button type="button" (click)="reset()">Reiniciar</button>
+    <button type="button" (click)="quickComplete()">Completar</button>
+  </div>
+</div>

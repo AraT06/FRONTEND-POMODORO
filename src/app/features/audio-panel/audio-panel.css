@@ -1,0 +1,63 @@
+.audio-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+}
+
+.mute,
+.play,
+label {
+  border: 1px solid rgba(7, 59, 63, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.mute,
+.play {
+  padding: 0.85rem 1rem;
+  color: white;
+  background: var(--teal);
+}
+
+.play.active {
+  background: var(--teal-2);
+}
+
+.mute.active {
+  color: var(--ink);
+  background: var(--rose);
+}
+
+label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  padding: 0.9rem 1rem;
+}
+
+label span {
+  color: var(--ink-soft);
+}
+
+input {
+  grid-column: 1 / -1;
+  accent-color: var(--teal);
+}
+
+.spectrum {
+  display: flex;
+  align-items: end;
+  gap: 0.42rem;
+  height: 96px;
+  border-radius: 22px;
+  padding: 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(147, 217, 209, 0.24));
+}
+
+.spectrum i {
+  flex: 1;
+  min-height: 8%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--teal), var(--mint));
+  transition: height 0.2s ease;
+}
